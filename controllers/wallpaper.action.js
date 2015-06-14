@@ -19,3 +19,21 @@ exports.latest = function(req, res) {
         return res.json(response.buildOK(list));
     })
 }
+exports.search = function(req, res) {
+    wallpaper.search(req.query,function(err,list){
+        if(err){
+            return res.json(response.buildError(err.message));
+        }
+        return res.json(response.buildOK(list));
+    })
+}
+exports.tag = function(req, res) {
+    console.log(req.params.tag)
+    return res.json(response.buildOK());
+//    wallpaper.search(req.query,function(err,list){
+//        if(err){
+//            return res.json(response.buildError(err.message));
+//        }
+//        return res.json(response.buildOK(list));
+//    })
+}
