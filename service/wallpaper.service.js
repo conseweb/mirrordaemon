@@ -67,6 +67,15 @@ exports.search = function(obj,cb) {
         }
     })
 }
+exports.tag = function(tag,cb) {
+    wallpaper.tag(tag,function(err,list){
+        if(err){
+            cb(err)
+        }else{
+            cb(null,list)
+        }
+    })
+}
 /*
 exports.save({
         category:'aa',// eg:General/Anime/People

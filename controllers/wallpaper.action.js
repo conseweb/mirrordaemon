@@ -28,12 +28,10 @@ exports.search = function(req, res) {
     })
 }
 exports.tag = function(req, res) {
-    console.log(req.params.tag)
-    return res.json(response.buildOK());
-//    wallpaper.search(req.query,function(err,list){
-//        if(err){
-//            return res.json(response.buildError(err.message));
-//        }
-//        return res.json(response.buildOK(list));
-//    })
+    wallpaper.tag(req.params.tag,function(err,list){
+        if(err){
+            return res.json(response.buildError(err.message));
+        }
+        return res.json(response.buildOK(list));
+    })
 }
