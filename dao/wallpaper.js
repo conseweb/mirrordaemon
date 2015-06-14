@@ -43,3 +43,17 @@ exports.latest = function(data,cb){
         }
     });
 }
+exports.search = function(data,cb){
+    var obj = avos.query('select * from wallpaper limit 0,20 order by createdAt asc',{
+        success: function(result){
+            //results 是查询返回的结果，AV.Object 列表
+            var results = result.results;
+            cb(null,results)
+        },
+        error: function(error){
+            //查询失败，查看 error
+            console.dir(error)
+            cb(error)
+        }
+    });
+}

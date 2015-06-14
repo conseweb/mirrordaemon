@@ -58,6 +58,15 @@ exports.latest = function(obj,cb) {
         }
     })
 }
+exports.search = function(obj,cb) {
+    wallpaper.search(obj,function(err,list){
+        if(err){
+            cb(err)
+        }else{
+            cb(null,list)
+        }
+    })
+}
 /*
 exports.save({
         category:'aa',// eg:General/Anime/People
