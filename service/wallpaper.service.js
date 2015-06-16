@@ -76,6 +76,19 @@ exports.tag = function(tag,cb) {
         }
     })
 }
+exports.random = function(cb) {
+    wallpaper.total(function(err,count){
+        if(err){
+            console.log(err)
+            cb(err)
+        }else{
+            var skip=parseInt(count*Math.random());
+            wallpaper.skip(skip,function(err,list){
+                cb(err,list)
+            })
+        }
+    })
+}
 /*
 exports.save({
         category:'aa',// eg:General/Anime/People

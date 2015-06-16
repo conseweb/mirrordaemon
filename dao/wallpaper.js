@@ -165,3 +165,24 @@ exports.tag = function(tag,cb){
         }
     });
 }
+exports.total = function(cb){
+    var obj = avos.query('select count(*) from wallpaper',{
+        success: function(result) {
+            cb(null,result.count)
+        },
+        error: function(error) {
+            console.log(error)
+            cb(error)
+        }
+    });
+}
+exports.skip = function(skip,cb){
+    var obj = avos.query('select * from wallpaper limit '+skip+',1',{
+        success: function(result) {
+            cb(null,result.results)
+        },
+        error: function(error) {
+            cb(error)
+        }
+    });
+}

@@ -35,3 +35,11 @@ exports.tag = function(req, res) {
         return res.json(response.buildOK(list));
     })
 }
+exports.random = function(req, res) {
+    wallpaper.random(function(err,list){
+        if(err){
+            return res.json(response.buildError(err.message));
+        }
+        return res.json(response.buildOK(list));
+    })
+}
